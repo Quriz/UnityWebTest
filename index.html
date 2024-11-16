@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Vour 4 URP Upgrade 2023 Test</title>
+    <title>Vour</title>
+    <meta name="description" content="">
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -23,16 +24,11 @@
         <!-- <div id="unity-logo-title-footer"></div> -->
         <div id="unity-fullscreen-button"></div>
         <button id="entervr" value="Enter VR" disabled>VR</button>
-        <div id="unity-build-title">Vour 4 URP Upgrade 2023 Test</div>
+        <div id="unity-build-title">Vour</div>
       </div>
     </div>
     <script>
       var canvas = document.querySelector("#unity-canvas");
-
-      document.getElementById('entervr').addEventListener('onVRSupportedCheck', function (event) {
-        console.log("VR SUPPORTED: " + event.detail.supported);
-        console.log("VR SUPPORTED: " + event);
-      }, false);
 
       // Shows a temporary message banner/ribbon for a few seconds, or
       // a permanent error message on top of the canvas if type=='error'.
@@ -60,16 +56,16 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/UnityWebTest.loader.js";
+      var loaderUrl = buildUrl + "/WebXR.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/UnityWebTest.data",
-        frameworkUrl: buildUrl + "/UnityWebTest.framework.js",
-        codeUrl: buildUrl + "/UnityWebTest.wasm",
+        dataUrl: buildUrl + "/WebXR.data",
+        frameworkUrl: buildUrl + "/WebXR.framework.js",
+        codeUrl: buildUrl + "/WebXR.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "Vour 4 URP Upgrade 2023 Test",
-        productVersion: "0.1",
+        companyName: "Criz Games",
+        productName: "Vour",
+        productVersion: "4.0.0",
         showBanner: unityShowBanner,
       };
 
