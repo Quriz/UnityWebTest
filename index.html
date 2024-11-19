@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Vour 4 URP Upgrade 2023 Test</title>
+    <meta name="description" content="">
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -28,12 +29,8 @@
     </div>
     <script>
       var canvas = document.querySelector("#unity-canvas");
-
-      document.getElementById('entervr').addEventListener('onVRSupportedCheck', function (event) {
-        enterVRButton.disabled = !event.detail.supported;
-        console.log("VR SUPPORTED: " + event.detail.supported);
-        console.log("VR SUPPORTED: " + event);
-      }, false);
+      
+      let enterVRButton = document.getElementById('entervr');
 
       // Shows a temporary message banner/ribbon for a few seconds, or
       // a permanent error message on top of the canvas if type=='error'.
@@ -81,6 +78,16 @@
       // the canvas DOM size and WebGL render target sizes yourself.
       // config.matchWebGLToCanvasSize = false;
 
+      // If you would like all file writes inside Unity Application.persistentDataPath
+      // directory to automatically persist so that the contents are remembered when
+      // the user revisits the site the next time, uncomment the following line:
+      // config.autoSyncPersistentDataPath = true;
+      // This autosyncing is currently not the default behavior to avoid regressing
+      // existing user projects that might rely on the earlier manual
+      // JS_FileSystem_Sync() behavior, but in future Unity version, this will be
+      // expected to change.
+
+
       if (/iPhone|iPad|iPod|Android|Quest/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
 
@@ -116,7 +123,7 @@
             unityInstance.SetFullscreen(1);
           };
 
-          document.getElementById('entervr').onclick = () => {
+          enterVRButton.onclick = () => {
             unityInstance.Module.WebXR.toggleVR();
           };
 
@@ -128,7 +135,7 @@
       document.body.appendChild(script);
 
       // VR supported check
-      document.getElementById('entervr').addEventListener('onVRSupportedCheck', function (event) {
+      document.addEventListener('onVRSupportedCheck', function (event) {
         enterVRButton.disabled = !event.detail.supported;
       }, false);
     </script>
